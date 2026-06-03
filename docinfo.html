@@ -5,8 +5,23 @@
         font-family: 'Montserrat', sans-serif;
     }
 
-    /* Bouton de repliage dans le TOC */
+    /* TOC : bouton + lien toujours sur la même ligne */
+    #toc li {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+    }
+    #toc li > a {
+        flex: 1;
+        min-width: 0;
+    }
+    #toc li > ul {
+        flex-basis: 100%;
+    }
+
+    /* Bouton de repliage */
     .toc-toggle {
+        flex-shrink: 0;
         background: none;
         border: none;
         cursor: pointer;
@@ -14,8 +29,6 @@
         color: #039efd;
         font-size: 0.6rem;
         line-height: 1;
-        vertical-align: middle;
-        display: inline-block;
         transform: rotate(90deg);
         transition: transform 0.2s ease;
     }
