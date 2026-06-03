@@ -43,6 +43,8 @@ jobs:
             --out-file spec.pdf \
             -a pdf-theme=pdf-theme.yml \
             -a pdf-themesdir=. \
+            -a imagesdir=. \
+            -a allow-uri-read \
             -a icons=font \
             -a revdate="$(date +'%Y-%m-%d')"
 

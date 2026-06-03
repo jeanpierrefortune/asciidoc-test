@@ -9,11 +9,12 @@ header:
   padding: [4, 12, 4, 12]
   font_size: 8
   font_color: '6b7280'
+  start_at: title
   recto_content:
-    left: image:{docdir}/logo-calypso.png[pdfwidth=1.2in]
+    left: image:logo-calypso.png[pdfwidth=1.2in]
     right: '{doctitle}'
   verso_content:
-    left: image:{docdir}/logo-calypso.png[pdfwidth=1.2in]
+    left: image:logo-calypso.png[pdfwidth=1.2in]
     right: '{doctitle}'
 
 # ── Pied de page ───────────────────────────────────────────────────────
