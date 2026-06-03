@@ -26,7 +26,8 @@ jobs:
       - name: Convert logo SVG to PNG
         run: |
           sudo apt-get install -y librsvg2-bin
-          rsvg-convert -f png -w 400 logo-calypso.svg -o logo-calypso.png
+          rsvg-convert -f png -w 300 logo-calypso.svg -o logo-calypso.png
+          echo "=== PNG ===" && ls -lh logo-calypso.png && file logo-calypso.png
 
       - name: Convert AsciiDoc to HTML
         run: |
@@ -39,11 +40,12 @@ jobs:
 
       - name: Convert AsciiDoc to PDF
         run: |
+          echo "=== Env ===" && pwd && asciidoctor-pdf --version
           asciidoctor-pdf spec.adoc \
             --out-file spec.pdf \
             -a pdf-theme=pdf-theme.yml \
-            -a pdf-themesdir=. \
-            -a imagesdir=. \
+            -a pdf-themesdir="$(pwd)" \
+            -a imagesdir="$(pwd)" \
             -a allow-uri-read \
             -a icons=font \
             -a revdate="$(date +'%Y-%m-%d')"
