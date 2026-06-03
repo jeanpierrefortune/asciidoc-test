@@ -40,10 +40,10 @@ jobs:
 
       - name: Convert AsciiDoc to PDF
         run: |
-          echo "=== Env ===" && pwd && asciidoctor-pdf --version
+          echo "=== Theme ===" && cat calypso-theme.yml
           asciidoctor-pdf spec.adoc \
             --out-file spec.pdf \
-            -a pdf-theme=pdf-theme.yml \
+            -a pdf-theme=calypso \
             -a pdf-themesdir="$(pwd)" \
             -a imagesdir="$(pwd)" \
             -a allow-uri-read \
