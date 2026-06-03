@@ -1,6 +1,106 @@
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-body, .content, p, li, td, th, dt, dd, .admonitionblock, .sectionbody {
+/* ── Typography: Montserrat partout sauf le code ─────────────────────── */
+body,
+h1, h2, h3, h4, h5, h6,
+p, li, td, th, dt, dd,
+#toc, #toc a,
+.toctitle,
+.admonitionblock td.content,
+.admonitionblock td.icon,
+.tableblock,
+.literalparagraph,
+.title,
+#footer {
   font-family: 'Montserrat', sans-serif;
+}
+
+/* Légèrement plus léger pour le corps de texte */
+body {
+  font-weight: 400;
+}
+
+/* Titres un peu plus marqués */
+h1, h2, h3, h4 {
+  font-weight: 700;
+}
+
+/* ── TOC – fixe et défilable indépendamment du contenu ───────────────── */
+#toc.toc2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+  /* Scrollbar discrète */
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+
+#toc.toc2::-webkit-scrollbar {
+  width: 4px;
+}
+#toc.toc2::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 2px;
+}
+
+/* ── Responsive: TOC en haut sur mobile ──────────────────────────────── */
+@media screen and (max-width: 768px) {
+  body.toc2 {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  #toc.toc2 {
+    position: static !important;
+    width: 100% !important;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 1rem;
+  }
+}
+
+/* ── Tabs (asciidoctor-tabs) ─────────────────────────────────────────── */
+.tablist {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid #e0e0e0;
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tablist li {
+  margin: 0;
+}
+
+.tablist a {
+  display: block;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.tablist a:hover {
+  color: #222;
+}
+
+.tablist li.is-active a {
+  color: #2156a5;
+  border-bottom-color: #2156a5;
+}
+
+.tab-content {
+  border: 1px solid #e0e0e0;
+  border-top: none;
+  padding: 1rem;
+  border-radius: 0 0 4px 4px;
 }
 </style>
