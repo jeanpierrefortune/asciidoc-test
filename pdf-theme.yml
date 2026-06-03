@@ -1,0 +1,33 @@
+extends: default
+
+# ── En-tête ────────────────────────────────────────────────────────────
+header:
+  height: 0.7in
+  line_height: 1
+  border_color: '039efd'
+  border_width: 0.5
+  padding: [4, 12, 4, 12]
+  font_size: 8
+  font_color: '6b7280'
+  recto_content:
+    left: image:{docdir}/logo-calypso.svg[pdfwidth=1.2in]
+    right: '{document-title}'
+  verso_content:
+    left: image:{docdir}/logo-calypso.svg[pdfwidth=1.2in]
+    right: '{document-title}'
+
+# ── Pied de page ───────────────────────────────────────────────────────
+footer:
+  height: 0.4in
+  line_height: 1
+  border_color: '039efd'
+  border_width: 0.5
+  padding: [4, 12, 4, 12]
+  font_size: 8
+  font_color: '6b7280'
+  recto_content:
+    left: '{revdate}'
+    right: '{page-number} / {page-count}'
+  verso_content:
+    left: '{revdate}'
+    right: '{page-number} / {page-count}'
