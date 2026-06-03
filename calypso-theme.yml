@@ -4,14 +4,14 @@ header:
   height: 0.7in
   border_color: '039efd'
   border_width: 0.5
-  padding: [4, 12, 4, 12]
-  font_size: 9
+  font_size: 14
+  font_color: 'ff0000'
   recto_content:
-    left: image:logo-calypso.png[pdfwidth=1.2in]
-    right: '{doctitle}'
+    left: 'TEST GAUCHE'
+    right: 'TEST DROITE'
   verso_content:
-    left: image:logo-calypso.png[pdfwidth=1.2in]
-    right: '{doctitle}'
+    left: 'TEST GAUCHE'
+    right: 'TEST DROITE'
 
 footer:
   height: 0.4in
