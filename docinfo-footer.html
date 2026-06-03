@@ -1,0 +1,27 @@
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('#toc li').forEach(function (li) {
+    var child = li.querySelector(':scope > ul');
+    if (!child) return;
+
+    var toggle = document.createElement('button');
+    toggle.className = 'toc-toggle';
+    toggle.setAttribute('aria-label', 'Déplier/replier');
+
+    // Niveau 1 déplié par défaut, niveaux suivants repliés
+    var isTopLevel = li.parentElement.classList.contains('sectlevel1');
+    if (!isTopLevel) {
+      child.hidden = true;
+      toggle.classList.add('is-collapsed');
+    }
+
+    toggle.addEventListener('click', function () {
+      var collapsed = child.hidden;
+      child.hidden = !collapsed;
+      toggle.classList.toggle('is-collapsed', !collapsed);
+    });
+
+    li.insertBefore(toggle, li.firstChild);
+  });
+});
+</script>

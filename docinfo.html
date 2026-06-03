@@ -4,4 +4,21 @@
     body, .content, p, li, td, th, dt, dd, .admonitionblock, .sectionbody {
         font-family: 'Montserrat', sans-serif;
     }
+
+    /* Bouton de repliage dans le TOC */
+    .toc-toggle {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0 4px 0 0;
+        color: #039efd;
+        font-size: 0.6rem;
+        line-height: 1;
+        vertical-align: middle;
+        display: inline-block;
+        transform: rotate(90deg);
+        transition: transform 0.2s ease;
+    }
+    .toc-toggle::before { content: '▶'; }
+    .toc-toggle.is-collapsed { transform: rotate(0deg); }
 </style>
