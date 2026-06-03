@@ -29,7 +29,8 @@ jobs:
             --out-file index.html \
             -a rouge-style=github \
             -a source-highlighter=rouge \
-            -a icons=font
+            -a icons=font \
+            -a docinfo=shared
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
