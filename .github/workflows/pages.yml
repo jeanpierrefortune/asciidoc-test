@@ -40,7 +40,6 @@ jobs:
 
       - name: Convert AsciiDoc to PDF
         run: |
-          echo "=== Default theme header ===" && grep -A 20 "^header:" $(gem contents asciidoctor-pdf | grep "default-theme.yml") || true
           asciidoctor-pdf spec.adoc \
             --out-file spec.pdf \
             -a pdf-theme=calypso \
