@@ -10,11 +10,11 @@ header:
   font_size: 8
   font_color: '6b7280'
   recto_content:
-    left: image:{docdir}/logo-calypso.svg[pdfwidth=1.2in]
-    right: '{document-title}'
+    left: image:{docdir}/logo-calypso.png[pdfwidth=1.2in]
+    right: '{doctitle}'
   verso_content:
-    left: image:{docdir}/logo-calypso.svg[pdfwidth=1.2in]
-    right: '{document-title}'
+    left: image:{docdir}/logo-calypso.png[pdfwidth=1.2in]
+    right: '{doctitle}'
 
 # ── Pied de page ───────────────────────────────────────────────────────
 footer:
