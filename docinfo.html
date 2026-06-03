@@ -1,216 +1,63 @@
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-/* ── Variables Calypsonet ─────────────────────────────────────────────── */
-:root {
-  --calypso:     #039efd;
-  --accent:      #039efd;
-  --accent-soft: #e8f5ff;
-  --text:        #374151;
-  --text-muted:  rgba(0,0,0,.65);
-  --border:      #e5e7eb;
-  --bg-page:     #f8fafc;
-  --bg-code:     #f8f8f8;
-}
-
-/* ── Fond de page ─────────────────────────────────────────────────────── */
-body { background-color: var(--bg-page); color: var(--text); }
-
-/* ── Typography: Montserrat partout sauf le code ─────────────────────── */
-body,
-h1, h2, h3, h4, h5, h6,
-p, li, td, th, dt, dd,
-#toc, #toc a,
-.toctitle,
-.admonitionblock td.content,
-.admonitionblock td.icon,
-.tableblock,
-.literalparagraph,
-.title,
-#footer {
+/* Police */
+body {
   font-family: 'Montserrat', sans-serif;
 }
 
-body           { font-weight: 400; }
-h1, h2, h3, h4 { font-weight: 700; }
+/* Liens */
+a, a:link, a:visited {
+  color: #039efd;
+}
+a:hover {
+  color: #039efd;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-/* ── Liens : bleu Calypsonet, hover = gras sans soulignement ─────────── */
-a               { color: var(--calypso); text-decoration: none; }
-a:hover         { text-decoration: none; font-weight: bold; color: var(--calypso); }
-
-/* ── Liens externes : suffixe ↗ (convention Calypsonet) ─────────────── */
+/* Liens externes : suffixe ↗ */
 a[href^="http"]:not(:has(img)):not(:has(i))::after {
   content: "\00a0↗";
   font-size: 0.85em;
   font-weight: normal;
 }
 
-/* ── h2 : trait bas discret ──────────────────────────────────────────── */
-h2 {
-  border-bottom: 1px solid var(--border);
-  padding-bottom: .35rem;
-  margin-bottom: 1rem;
-}
-
-/* ── Tables ──────────────────────────────────────────────────────────── */
-table {
-  display: table;
-  overflow-x: auto;
-}
-
+/* Tables */
 thead {
-  background-color: #DDD;
+  background-color: #ddd;
 }
-
-table>tbody>tr:nth-child(odd)>td,
-table>tbody>tr:nth-child(odd)>th {
+table > tbody > tr:nth-child(odd) > td,
+table > tbody > tr:nth-child(odd) > th {
   background-color: #f9f9f9;
 }
 
-/* ── Code inline ─────────────────────────────────────────────────────── */
+/* Code */
 code {
-  font-size: 1rem !important;
-  font-family: monospace;
+  background-color: #f8f8f8;
   border-radius: 3px;
   padding: .2em .4em;
-  background-color: var(--bg-code);
 }
 
-/* ── Blocs de code ───────────────────────────────────────────────────── */
-.listingblock pre,
-.literalblock pre {
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1.2rem 1.4rem;
-}
-
-.listingblock pre code,
-.literalblock pre code {
-  font-size: .8rem !important;
-  font-family: monospace;
-  white-space: pre-wrap !important;
-  background-color: inherit;
-  padding: 0;
-  border-radius: 0;
-}
-
-table code { font-size: .8rem !important; }
-
-/* ── Admonitions : bordure gauche colorée par type ───────────────────── */
-.admonitionblock {
-  border: none;
-  border-left: 4px solid var(--calypso);
-  background: var(--accent-soft);
-  border-radius: 0 6px 6px 0;
-  padding: .8rem 1rem;
-  margin: 1.2rem 0;
-}
-
-.admonitionblock td.icon {
-  padding-right: .8rem;
-  width: auto;
-  vertical-align: top;
-}
-
-.admonitionblock td.icon .title {
-  color: var(--calypso);
-  font-weight: 700;
-  font-size: .8rem;
-  text-transform: uppercase;
-  letter-spacing: .05em;
-}
-
-.admonitionblock td.content { padding: 0; border: none; }
-
-.admonitionblock.tip       { border-left-color: #10b981; background: #ecfdf5; }
-.admonitionblock.tip       .icon .title { color: #10b981; }
-.admonitionblock.warning   { border-left-color: #f59e0b; background: #fffbeb; }
-.admonitionblock.warning   .icon .title { color: #f59e0b; }
-.admonitionblock.caution   { border-left-color: #ef4444; background: #fef2f2; }
-.admonitionblock.caution   .icon .title { color: #ef4444; }
-.admonitionblock.important { border-left-color: #8b5cf6; background: #f5f3ff; }
-.admonitionblock.important .icon .title { color: #8b5cf6; }
-
-/* ── Component metadata (convention Calypsonet) ──────────────────────── */
-.component-metadata { padding-left: 2rem; }
-
-/* ── Footer : fond bleu Calypsonet ───────────────────────────────────── */
+/* Footer */
 #footer {
-  background-color: var(--calypso);
+  background-color: #039efd;
   color: #fff;
-  padding: 2rem 0 1rem;
+}
+#footer a, #footer a:hover {
+  color: #fff;
 }
 
-#footer,
-#footer a,
-#footer a:hover { color: #fff !important; }
-
-/* ── TOC – fixe, défilable, liens style Calypsonet ───────────────────── */
+/* TOC : défilement indépendant sur grands écrans */
 #toc.toc2 {
   position: fixed;
   top: 0;
-  left: 0;
   bottom: 0;
   overflow-y: auto;
-  background: var(--bg-page);
-  border-right: 1px solid var(--border);
-  scrollbar-width: thin;
-  scrollbar-color: #d1d5db transparent;
 }
 
-#toc a {
-  color: var(--text-muted);
-  font-size: .8rem;
-  line-height: .9rem;
-  padding: .2rem 1rem .2rem 1.8rem;
-}
-
-#toc a:hover { color: var(--calypso); font-weight: bold; }
-
-#toc.toc2::-webkit-scrollbar       { width: 4px; }
-#toc.toc2::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 2px; }
-
-/* ── Responsive: TOC en haut sur mobile ──────────────────────────────── */
-@media screen and (max-width: 768px) {
-  body.toc2 {
-    padding-left: 0 !important;
-    margin-left: 0 !important;
-  }
-  #toc.toc2 {
-    position: static !important;
-    width: 100% !important;
-    height: auto;
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-    padding: 1rem;
-  }
-}
-
-/* ── Tabs (asciidoctor-tabs) ─────────────────────────────────────────── */
-.tablist {
-  display: flex;
-  border-bottom: 2px solid var(--border);
-  margin-bottom: 0;
-  padding: 0;
-  list-style: none;
-}
-.tablist li { margin: 0; }
-.tablist a {
-  display: block;
-  padding: .5rem 1.2rem;
-  font-size: .85rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  text-decoration: none;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -2px;
-  transition: color .15s, border-color .15s;
-}
-.tablist a:hover              { color: var(--text); font-weight: bold; }
-.tablist li.is-active a       { color: var(--calypso); border-bottom-color: var(--calypso); }
-.tab-content {
-  border: 1px solid var(--border);
-  border-top: none;
-  padding: 1rem;
-  border-radius: 0 0 6px 6px;
+/* Responsive : TOC en haut sur mobile */
+@media (max-width: 768px) {
+  body.toc2 { padding-left: 0 !important; }
+  #toc.toc2 { position: static !important; width: 100% !important; }
 }
 </style>
