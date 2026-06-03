@@ -1,5 +1,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
+/* ── Variables ────────────────────────────────────────────────────────── */
+:root {
+  --accent:      #4f46e5;
+  --accent-soft: #ede9fe;
+  --text:        #374151;
+  --text-light:  #6b7280;
+  --border:      #e5e7eb;
+  --bg-page:     #f8fafc;
+  --bg-code:     #f1f5f9;
+}
+
+/* ── Fond de page ─────────────────────────────────────────────────────── */
+body {
+  background-color: var(--bg-page);
+  color: var(--text);
+}
+
 /* ── Typography: Montserrat partout sauf le code ─────────────────────── */
 body,
 h1, h2, h3, h4, h5, h6,
@@ -13,17 +30,72 @@ p, li, td, th, dt, dd,
 .title,
 #footer {
   font-family: 'Montserrat', sans-serif;
+  color: var(--text);
 }
 
-/* Légèrement plus léger pour le corps de texte */
-body {
-  font-weight: 400;
+body      { font-weight: 400; }
+h1, h2, h3, h4 { font-weight: 700; }
+
+/* ── Couleur d'accent pour les liens ─────────────────────────────────── */
+a               { color: var(--accent); text-decoration: none; }
+a:hover         { text-decoration: underline; }
+#toc a          { color: var(--text-light); }
+#toc a:hover    { color: var(--accent); }
+
+/* ── Titres h2 : trait bas discret ───────────────────────────────────── */
+h2 {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: .35rem;
+  margin-bottom: 1rem;
 }
 
-/* Titres un peu plus marqués */
-h1, h2, h3, h4 {
+/* ── Blocs de code : coins arrondis + fond doux ──────────────────────── */
+.listingblock pre,
+.literalblock pre {
+  background: var(--bg-code);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.2rem 1.4rem;
+}
+
+/* ── Admonitions : bordure gauche uniquement ─────────────────────────── */
+.admonitionblock {
+  border: none;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 6px 6px 0;
+  padding: .8rem 1rem;
+  margin: 1.2rem 0;
+}
+
+.admonitionblock td.icon {
+  padding-right: .8rem;
+  width: auto;
+  vertical-align: top;
+}
+
+.admonitionblock td.icon .title {
+  color: var(--accent);
   font-weight: 700;
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
 }
+
+.admonitionblock td.content {
+  padding: 0;
+  border: none;
+}
+
+/* Variantes de couleur par type d'admonition */
+.admonitionblock.tip    { border-left-color: #10b981; background: #ecfdf5; }
+.admonitionblock.tip    .icon .title { color: #10b981; }
+.admonitionblock.warning { border-left-color: #f59e0b; background: #fffbeb; }
+.admonitionblock.warning .icon .title { color: #f59e0b; }
+.admonitionblock.caution { border-left-color: #ef4444; background: #fef2f2; }
+.admonitionblock.caution .icon .title { color: #ef4444; }
+.admonitionblock.important { border-left-color: #8b5cf6; background: #f5f3ff; }
+.admonitionblock.important .icon .title { color: #8b5cf6; }
 
 /* ── TOC – fixe et défilable indépendamment du contenu ───────────────── */
 #toc.toc2 {
@@ -32,18 +104,14 @@ h1, h2, h3, h4 {
   left: 0;
   bottom: 0;
   overflow-y: auto;
-  /* Scrollbar discrète */
+  background: var(--bg-page);
+  border-right: 1px solid var(--border);
   scrollbar-width: thin;
-  scrollbar-color: #ccc transparent;
+  scrollbar-color: #d1d5db transparent;
 }
 
-#toc.toc2::-webkit-scrollbar {
-  width: 4px;
-}
-#toc.toc2::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 2px;
-}
+#toc.toc2::-webkit-scrollbar       { width: 4px; }
+#toc.toc2::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 2px; }
 
 /* ── Responsive: TOC en haut sur mobile ──────────────────────────────── */
 @media screen and (max-width: 768px) {
@@ -51,13 +119,12 @@ h1, h2, h3, h4 {
     padding-left: 0 !important;
     margin-left: 0 !important;
   }
-
   #toc.toc2 {
     position: static !important;
     width: 100% !important;
     height: auto;
     border-right: none;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--border);
     padding: 1rem;
   }
 }
@@ -65,42 +132,29 @@ h1, h2, h3, h4 {
 /* ── Tabs (asciidoctor-tabs) ─────────────────────────────────────────── */
 .tablist {
   display: flex;
-  gap: 0;
-  border-bottom: 2px solid #e0e0e0;
+  border-bottom: 2px solid var(--border);
   margin-bottom: 0;
   padding: 0;
   list-style: none;
 }
-
-.tablist li {
-  margin: 0;
-}
-
+.tablist li { margin: 0; }
 .tablist a {
   display: block;
-  padding: 0.5rem 1.2rem;
-  font-size: 0.85rem;
+  padding: .5rem 1.2rem;
+  font-size: .85rem;
   font-weight: 600;
-  color: #555;
+  color: var(--text-light);
   text-decoration: none;
   border-bottom: 2px solid transparent;
   margin-bottom: -2px;
-  transition: color 0.15s, border-color 0.15s;
+  transition: color .15s, border-color .15s;
 }
-
-.tablist a:hover {
-  color: #222;
-}
-
-.tablist li.is-active a {
-  color: #2156a5;
-  border-bottom-color: #2156a5;
-}
-
+.tablist a:hover             { color: var(--text); text-decoration: none; }
+.tablist li.is-active a      { color: var(--accent); border-bottom-color: var(--accent); }
 .tab-content {
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--border);
   border-top: none;
   padding: 1rem;
-  border-radius: 0 0 4px 4px;
+  border-radius: 0 0 6px 6px;
 }
 </style>
