@@ -1,11 +1,12 @@
 extends: default
 
 header:
-  height: 0.7in
+  height: 1in
   border_color: '039efd'
   border_width: 0.5
-  padding: [4, 12, 4, 12]
+  padding: [6, 12, 6, 12]
   font_size: 9
+  start_at: body
   recto:
     left:
       content: image:logo-calypso.png[pdfwidth=1.2in]
@@ -24,6 +25,7 @@ footer:
   padding: [4, 12, 4, 12]
   font_size: 8
   font_color: '6b7280'
+  start_at: body
   recto:
     left:
       content: '{revdate}'
