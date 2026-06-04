@@ -48,7 +48,7 @@ jobs:
             --out-file spec.pdf \
             -a pdf-theme=calypso \
             -a pdf-themesdir="$(pwd)" \
-            -a pdf-fontsdir="$(pwd)/fonts" \
+            -a pdf-fontsdir="$(pwd)/fonts;GEM_FONTS_DIR" \
             -a imagesdir="$(pwd)" \
             -a allow-uri-read \
             -a revdate="$(date +'%Y-%m-%d')"
