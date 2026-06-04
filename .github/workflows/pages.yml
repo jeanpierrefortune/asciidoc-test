@@ -23,14 +23,12 @@ jobs:
       - name: Install Asciidoctor
         run: sudo gem install asciidoctor rouge asciidoctor-kroki asciidoctor-pdf prawn-svg
 
-      - name: Download Montserrat fonts
+      - name: Install Montserrat fonts
         run: |
+          sudo apt-get install -y fonts-montserrat
           mkdir -p fonts
-          BASE="https://raw.githubusercontent.com/google/fonts/main/ofl/montserrat/static"
-          for variant in Regular Bold Italic BoldItalic; do
-            curl -fsSLo "fonts/Montserrat-${variant}.ttf" "$BASE/Montserrat-${variant}.ttf"
-            echo "Montserrat-${variant}.ttf: $(wc -c < fonts/Montserrat-${variant}.ttf) bytes"
-          done
+          find /usr/share/fonts -name "Montserrat-*.ttf" -exec cp {} fonts/ \;
+          ls -lh fonts/
 
       - name: Convert logo SVG to PNG
         run: |
