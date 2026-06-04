@@ -44,11 +44,13 @@ jobs:
 
       - name: Convert AsciiDoc to PDF
         run: |
+          GEM_FONTS=$(gem contents asciidoctor-pdf | grep "data/fonts" | head -1 | sed 's|/[^/]*$||')
+          echo "Gem fonts: $GEM_FONTS"
           asciidoctor-pdf api_specification.adoc \
             --out-file spec.pdf \
             -a pdf-theme=calypso \
             -a pdf-themesdir="$(pwd)" \
-            -a pdf-fontsdir="$(pwd)/fonts;GEM_FONTS_DIR" \
+            -a pdf-fontsdir="$(pwd)/fonts;$GEM_FONTS" \
             -a imagesdir="$(pwd)" \
             -a allow-uri-read \
             -a revdate="$(date +'%Y-%m-%d')"
