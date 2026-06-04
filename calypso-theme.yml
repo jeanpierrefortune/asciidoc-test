@@ -1,7 +1,7 @@
 extends: default
 
 header:
-  height: 1.4in
+  height: 1.5in
   border_color: '039efd'
   border_width: 0.5
   padding: [8, 12, 8, 12]
@@ -9,12 +9,12 @@ header:
   start_at: body
   recto:
     left:
-      content: image:logo-calypso.png[]
+      content: image:logo-calypso.png[pdfwidth=1.2in]
     right:
       content: '{doctitle}'
   verso:
     left:
-      content: image:logo-calypso.png[]
+      content: image:logo-calypso.png[pdfwidth=1.2in]
     right:
       content: '{doctitle}'
 
