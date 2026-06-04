@@ -1,5 +1,8 @@
 extends: default
 
+page:
+  margin: [0.5in, 0.67in, 0.67in, 0.67in]
+
 header:
   height: 1.5in
   border_color: '039efd'
