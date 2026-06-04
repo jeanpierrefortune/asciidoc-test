@@ -1,14 +1,17 @@
+extends: default
+
+page:
+  # On ajuste la marge du haut à 1.0in.
+  # C'est un standard confortable qui englobera parfaitement le nouvel en-tête.
+  margin: [1.0in, 0.67in, 0.67in, 0.67in]
+
 header:
-  # On ajuste légèrement la hauteur si on augmente le padding du haut
-  height: 0.7in
+  # On réduit la hauteur de l'en-tête de 1.5in à 0.6in.
+  # Cela laisse juste assez de place pour le logo, le texte et le padding.
+  height: 0.6in
   border_color: '039efd'
   border_width: 0.5
-  # MODIFICATION ICI :
-  # 24 : espace augmenté au-dessus du contenu
-  # 12 : espace à droite
-  # 8  : espace en bas
-  # 0  : aucun espace à gauche (alignement parfait sur la ligne bleue)
-  padding: [24, 12, 8, 0]
+  padding: [8, 12, 8, 12]
   font_size: 9
   start_at: body
   recto:
@@ -21,3 +24,23 @@ header:
       content: image:logo-calypso.png[pdfwidth=1.2in]
     right:
       content: '{doctitle}'
+
+# (Conserve ton bloc footer tel qu'il est, il était déjà correct)
+footer:
+  height: 0.4in
+  border_color: '039efd'
+  border_width: 0.5
+  padding: [4, 12, 4, 12]
+  font_size: 8
+  font_color: '6b7280'
+  start_at: body
+  recto:
+    left:
+      content: '{revdate}'
+    right:
+      content: '{page-number} / {page-count}'
+  verso:
+    left:
+      content: '{revdate}'
+    right:
+      content: '{page-number} / {page-count}'
