@@ -16,12 +16,12 @@ header:
   start_at: body
   recto:
     left:
-      content: image:logo-calypso.png[pdfwidth=1.2in]
+      content: image:logo-calypso.svg[pdfwidth=1.2in]
     right:
       content: '{doctitle}'
   verso:
     left:
-      content: image:logo-calypso.png[pdfwidth=1.2in]
+      content: image:logo-calypso.svg[pdfwidth=1.2in]
     right:
       content: '{doctitle}'
 
