@@ -1,5 +1,20 @@
 extends: default
 
+font:
+  catalog:
+    Montserrat:
+      normal: Montserrat-Regular.ttf
+      bold: Montserrat-Bold.ttf
+      italic: Montserrat-Italic.ttf
+      bold_italic: Montserrat-BoldItalic.ttf
+
+base:
+  font_family: Montserrat
+
+heading:
+  font_family: Montserrat
+  font_style: bold
+
 page:
   # On ajuste la marge du haut à 1.0in.
   # C'est un standard confortable qui englobera parfaitement le nouvel en-tête.

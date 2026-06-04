@@ -23,6 +23,15 @@ jobs:
       - name: Install Asciidoctor
         run: sudo gem install asciidoctor rouge asciidoctor-kroki asciidoctor-pdf prawn-svg
 
+      - name: Download Montserrat fonts
+        run: |
+          mkdir -p fonts
+          BASE="https://raw.githubusercontent.com/google/fonts/main/ofl/montserrat/static"
+          curl -sLo fonts/Montserrat-Regular.ttf    "$BASE/Montserrat-Regular.ttf"
+          curl -sLo fonts/Montserrat-Bold.ttf       "$BASE/Montserrat-Bold.ttf"
+          curl -sLo fonts/Montserrat-Italic.ttf     "$BASE/Montserrat-Italic.ttf"
+          curl -sLo fonts/Montserrat-BoldItalic.ttf "$BASE/Montserrat-BoldItalic.ttf"
+
       - name: Convert logo SVG to PNG
         run: |
           sudo apt-get install -y librsvg2-bin
@@ -41,6 +50,7 @@ jobs:
             --out-file spec.pdf \
             -a pdf-theme=calypso \
             -a pdf-themesdir="$(pwd)" \
+            -a pdf-fontsdir="$(pwd)/fonts" \
             -a imagesdir="$(pwd)" \
             -a allow-uri-read \
             -a revdate="$(date +'%Y-%m-%d')"
